@@ -1,6 +1,7 @@
 {
   "sideMenu": {
     "dashboard": "Dashboard",
-    "contracts": "Contracts"
+    "contracts": "Contracts",
+    "logout": "Log out"
   }
 }

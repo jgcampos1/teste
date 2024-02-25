@@ -1,6 +1,7 @@
 {
   "sideMenu": {
     "dashboard": "Dashboard",
-    "contracts": "Contratos"
+    "contracts": "Contratos",
+    "logout": "Sair"
   }
 }

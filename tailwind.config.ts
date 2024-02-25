@@ -23,9 +23,22 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: colors.blue,
-        secondary: colors.slate,
-        destructive: colors.red,
+
+        primary: {
+          DEFAULT: colors.blue[500],
+          foreground: colors.blue[50],
+          ...colors.blue,
+        },
+        secondary: {
+          DEFAULT: colors.slate[500],
+          foreground: colors.slate[50],
+          ...colors.slate,
+        },
+        destructive: {
+          DEFAULT: colors.red[500],
+          foreground: colors.red[50],
+          ...colors.red,
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",

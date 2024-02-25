@@ -1,14 +1,15 @@
 import { useToggle } from "../../hooks/use-toggle";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/utils";
-import { List, TextIndent } from "@phosphor-icons/react";
-import { ListItems } from "./components/list-items";
+import { List, SignOut, TextIndent } from "@phosphor-icons/react";
+import { ListItems } from "../list-items";
 import { useEffect } from "react";
 import { cacheStorage } from "@/main/cache";
+import { useTranslation } from "../../hooks/use-translation";
 
 export const SideMenu = () => {
   const [open, toggleMenu, { set }] = useToggle(false);
-  const openClass = "w-18";
+  const { translate } = useTranslation();
 
   const handleCollapseMenu = () => {
     cacheStorage.set("@menu", !open);
@@ -21,8 +22,8 @@ export const SideMenu = () => {
   return (
     <div
       className={cn(
-        "w-3/12 min-wih-screen bg-background flex flex-col justify-start items-center gap-2 p-4",
-        !open && openClass
+        "w-2/12 min-wih-screen h-screen bg-slate-200 flex flex-col justify-start items-center gap-2 p-4 shadow min-w-60",
+        !open && "w-18"
       )}
     >
       <div className="flex gap-2 justify-between">
@@ -35,7 +36,15 @@ export const SideMenu = () => {
           {open ? <TextIndent size={32} /> : <List size={32} />}
         </Button>
       </div>
-      <ListItems collapse={open} />
+      <ListItems collapsed={!open} />
+      <Button
+        variant={"destructive"}
+        className={cn(
+          "w-full flex justify-start gap-2 items-center p-2 shadow hover:bg-red-700"
+        )}
+      >
+        <SignOut size={32} /> {open && translate("sideMenu.logout")}
+      </Button>
     </div>
   );
 };
