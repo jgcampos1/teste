@@ -10,4 +10,12 @@ export const generalRoutes: IRoute[] = [
     layout: "DefaultLayout",
     roles: [],
   },
+  {
+    path: "/contracts",
+    name: "Dashboard",
+    private: true,
+    element: <Dashboard />,
+    layout: "DefaultLayout",
+    roles: [],
+  },
 ];

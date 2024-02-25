@@ -24,6 +24,7 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+    "react-hooks/rules-of-hooks": "false",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },

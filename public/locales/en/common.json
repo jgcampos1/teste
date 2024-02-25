@@ -1,9 +1,6 @@
 {
-  "validator": {
-    "invalidField": "Invalid field",
-    "requiredField": "Required field",
-    "invalidEmail": "Invalid email",
-    "passwordInvalid": "The password Must be at least 8 characters, lowercase, uppercase and numeric characters",
-    "missMatchField": "Fields must match."
+  "sideMenu": {
+    "dashboard": "Dashboard",
+    "contracts": "Contracts"
   }
 }

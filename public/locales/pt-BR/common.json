@@ -1,13 +1,6 @@
 {
-  "Expected array, received string": "Selecione algum item",
-  "validator": {
-    "invalidField": "Campo inválido",
-    "requiredField": "Campo obrigatório",
-    "invalidLink": "Deve ser um link válido",
-    "invalidEmail": "Email inválido",
-    "maxField": "Valor muito grande para esse campo",
-    "passwordInvalid": "A senha deve ter no mínimo 8 caracteres, minúsculos, maiúsculos e caracteres numéricos",
-    "missMatchField": "Campos devem ser iguais.",
-    "invalidDocument": "Os documentos de CPF ou CPNJ devem ser validos "
+  "sideMenu": {
+    "dashboard": "Dashboard",
+    "contracts": "Contratos"
   }
 }
