@@ -1,0 +1,23 @@
+{
+  "REQUIRED_FIELD": "Campo obrigatório",
+  "MAX_LENGTH": "Deve ter {{length}} caracteres ou menos.",
+  "MIN_LENGTH": "Deve ter {{length}} caracteres ou mais.",
+  "MAX_VALUE": "Valor precisa ser menor ou igual a {{value}}",
+  "MIN_VALUE": "Valor precisa ser maior ou igual a {{value}}",
+  "IS_EMPTY": "A lista não pode está vazia",
+  "INVALID_EMAIL": "E-mail inválido.",
+  "SPACE_NOT_ALLOWED": "Não são permitidos espaços",
+  "SPECIAL_CHARACTERS_NOT_ALLOWED": "Não são permitidos caracteres especiais",
+  "MISMATCH_FIELD": "Campos devem ser iguais.",
+  "PASSWORD_STRENGTH": "A senha deve ter letras maiúsculas, minúsculas e números.",
+  "UNEXPECTED_ERROR": "Ocorreu algum erro com sua solicitação. Favor tentar novamente em alguns instantes.",
+  "INVALID_CREDENTIALS": "Credenciais inválidas!",
+  "EMAIL_ALREADY_EXISTS": "Esse email já existe",
+  "USER_NOT_FOUND": "Usuário não encontrado.",
+  "FORBIDDEN_ACTION": "Permissão negada",
+  "INVALID_DOCUMENT": " CPF ou CNPJ invalido",
+  "INVALID_PHONE_NUMBER": "Phone Number invalid",
+  "MISMATCH_PASSWORD_FIELD": "As senhas precisam ser iguais",
+  "PASSWORD_TOO_SHORT": "A senha deve ter no mínimo 8 caracteres",
+  "INVALID_TOKEN": "Token de usuário inválido"
+}

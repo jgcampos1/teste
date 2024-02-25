@@ -1,5 +1,5 @@
-import AuthFormLayout from "@/application/shared/layout/auth-form-layout/auth-form-layout";
-import DefaultLayout from "@/application/shared/layout/default-layout/default-layout";
+import AuthFormLayout from "@/application/shared/layout/auth-form-layout/";
+import DefaultLayout from "@/application/shared/layout/default-layout/";
 
 export const LayoutConfig = {
   DefaultLayout: {

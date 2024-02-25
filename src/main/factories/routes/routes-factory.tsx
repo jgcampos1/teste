@@ -1,4 +1,4 @@
-import ProtectRoute from "@/application/shared/components/protect-route/protect-route";
+import ProtectRoute from "@/application/shared/components/protect-route";
 import { LayoutConfig } from "@/main/config/layout-config";
 import { IRoute } from "@/main/types/route-types";
 import { Route, Routes } from "react-router-dom";

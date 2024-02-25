@@ -1,0 +1,54 @@
+{
+  "validator": {
+    "invalidField": "Invalid field",
+    "requiredField": "Required field",
+    "invalidEmail": "Invalid email"
+  },
+  "login": {
+    "title": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgot": "Forgot your password?",
+    "signInBtnText": "Sign In",
+    "successMessage": "Login done successfully"
+  },
+  "background": {
+    "title": "Beta CRM",
+    "text": ""
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "",
+    "email": "Email",
+    "resetBtnText": "Reset"
+  },
+  "recoveryEmailSent": {
+    "title": "Recovery Email Sent",
+    "subtitle": "",
+    "returnToLoginBtn": "Return to login screen"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "Password must have 8 characters at least and a special character",
+    "passwordInput": "Password",
+    "repeatPasswordInput": "Repeat Password",
+    "resetBtn": "Reset"
+  },
+  "successPasswordUpdate": {
+    "title": "Password Updated",
+    "subtitle": "",
+    "returnLoginScreenBtn": "Voltar para a tela de login"
+  },
+  "confirmAccount": {
+    "title": "Confirm Account",
+    "subtitle": "Create a password for your account",
+    "btnText": "Create"
+  },
+  "resendEmail": {
+    "title": "Resend Confirmation Email",
+    "subtitle": "Your confirmation token has expired, confirm to resend another to your email inbox",
+    "btnText": "Resend",
+    "success": "Email sent, please check your email inbox"
+  }
+}
