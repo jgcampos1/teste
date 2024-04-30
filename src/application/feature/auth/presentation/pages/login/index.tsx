@@ -1,24 +1,28 @@
-import { Button } from "@/application/shared/components/ui/button";
-import { Input } from "@/application/shared/components/ui/input";
+import { FormLoginSchema, resolver } from "./components/form-login.schema";
+import { FormProvider, useForm } from "react-hook-form";
+import { FormLogin } from "./components/form-login";
 
 export const Login = () => {
+  const methods = useForm<FormLoginSchema>({
+    resolver,
+  });
+
+  console.log("i", methods.formState.errors);
+
+  const onSubmit = (data: FormLoginSchema) => {
+    console.log(data);
+  };
+
   return (
-    <div className="space-y-5  shadow-lg p-5">
+    <div className="space-y-5 shadow-lg p-5 w-full">
       <h1 className="text-2xl text-primary-500">Login</h1>
       <p className="text-base text-gray-700">
         Insira suas informações para realizar o login
       </p>
-      <div className="space-y-2">
-        <Input placeholder="Email" name="Input" label="Login" />
-      </div>
-      <div className="space-y-2">
-        <Input placeholder="Senha" name="Senha" label="Senha" />
-      </div>
 
-      <div className="w-full flex justify-between">
-        <Button>Entrar</Button>
-        <Button variant={"link"}>Esqueceu sua senha?</Button>
-      </div>
+      <FormProvider {...methods}>
+        <FormLogin onSubmit={onSubmit} />
+      </FormProvider>
     </div>
   );
 };
