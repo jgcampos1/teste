@@ -18,7 +18,7 @@ const AuthFormLayout = ({ children }: Props) => {
           />
         </div>
       )}
-      <div className="flex-1 h-screen p-12 flex items-center justify-center flex-col bg-indigo-700">
+      <div className="flex-1 h-screen p-12 flex items-center justify-center flex-col ">
         <div className="flex items-center justify-end  w-2/3">
           <img src="/images/logo-ituran-mob.png" className="w-48" />
         </div>
