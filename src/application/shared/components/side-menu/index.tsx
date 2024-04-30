@@ -6,8 +6,11 @@ import { ListItems } from "../list-items";
 import { useEffect } from "react";
 import { cacheStorage } from "@/main/cache";
 import { useTranslation } from "../../hooks/use-translation";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/main/types/routes-enum";
 
 export const SideMenu = () => {
+  const navigate = useNavigate();
   const [open, toggleMenu, { set }] = useToggle(false);
   const { translate } = useTranslation();
 
@@ -27,7 +30,7 @@ export const SideMenu = () => {
       )}
     >
       <div className="flex gap-2 justify-between">
-        {open && <img src="/images/logoIturan-mob.png" className="w-2/3" />}
+        {open && <img src="/images/logo-ituran-mob.png" className="w-2/3" />}
         <Button
           onClick={handleCollapseMenu}
           className="w-14 self-end"
@@ -42,6 +45,9 @@ export const SideMenu = () => {
         className={cn(
           "w-full flex justify-start gap-2 items-center p-2 shadow hover:bg-red-700"
         )}
+        onClick={() => {
+          navigate(ROUTES.LOGIN);
+        }}
       >
         <SignOut size={32} /> {open && translate("sideMenu.logout")}
       </Button>
