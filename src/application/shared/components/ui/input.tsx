@@ -22,14 +22,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, icon, label, name, control, ...props }, ref) => {
     const labelId = `input-${name}-${label}`;
 
-    const { translate } = useTranslation();
+    const { translate } = useTranslation("exception");
 
     return (
       <Controller
         name={name}
         control={control}
         render={({ field, fieldState: { error } }) => {
-          console.log(error, name);
           return (
             <div className="space-y-2 ">
               <Label className="text-gray-500" htmlFor={labelId}>

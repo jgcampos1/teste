@@ -1,0 +1,10 @@
+{
+  "title": "Login",
+  "description": "Enter your information to log in",
+  "form": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "forgotPassword": "Forgot password?",
+  "signIn": "sign in"
+}

@@ -6,11 +6,13 @@ import { useFormContext } from "react-hook-form";
 import { Button } from "@/application/shared/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/main/types/routes-enum";
+import { useTranslation } from "@/application/shared/hooks/use-translation";
 
 interface Props {
   onSubmit: (data: FormLoginSchema) => void;
 }
 export const FormLogin = ({ onSubmit }: Props) => {
+  const { translate } = useTranslation("login");
   const navigate = useNavigate();
   const [viewPassword, toggleViewPassword] = useToggle();
   const { handleSubmit } = useFormContext<FormLoginSchema>();
@@ -21,14 +23,18 @@ export const FormLogin = ({ onSubmit }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="space-y-2">
-        <Input placeholder="Email" name="email" label="Login" />
+        <Input
+          placeholder={translate("form.email.placeholder")}
+          label={translate("form.email.label")}
+          name="email"
+        />
       </div>
       <div className="space-y-2">
         <Input
-          placeholder="Senha"
+          placeholder={translate("form.password.placeholder")}
+          label={translate("form.password.label")}
           name="password"
           type={viewPassword ? "texts" : "password"}
-          label="Senha"
           icon={{
             end: viewPassword ? EyeClosed : Eye,
             handleIconClick: toggleViewPassword,
@@ -37,9 +43,9 @@ export const FormLogin = ({ onSubmit }: Props) => {
       </div>
       <div className="w-full flex justify-between">
         <Button variant={"link"} onClick={redirectToForgotPassword}>
-          Esqueceu sua senha?
+          {translate("forgotPassword")}
         </Button>
-        <Button type="submit">Entrar</Button>
+        <Button type="submit">{translate("signIn")}</Button>
       </div>
     </form>
   );

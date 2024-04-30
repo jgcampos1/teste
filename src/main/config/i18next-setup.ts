@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import i18next, { InitOptions } from "i18next";
 import Backend from "i18next-http-backend";
 
-const availableLanguages = ["en", "pt-BR"];
+const availableLanguages = ["en-us", "pt-BR"];
 
 const translationOptions: InitOptions = {
   lng: "pt-BR",

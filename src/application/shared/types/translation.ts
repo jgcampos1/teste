@@ -6,4 +6,4 @@ export interface Translation {
   updateLanguage: (language: AvailableLanguages) => void;
 }
 
-export type AvailableLanguages = "en-US" | "pt-BR";
+export type AvailableLanguages = "en-us" | "pt-BR";

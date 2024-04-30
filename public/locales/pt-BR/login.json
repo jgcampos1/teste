@@ -1,57 +1,16 @@
 {
-  "validator": {
-    "invalidField": "Invalid field",
-    "requiredField": "Required field",
-    "invalidEmail": "Invalid email"
+  "title": "Login",
+  "description": "Insira suas informações para realizar o login",
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Digite seu e-mail"
+    },
+    "password": {
+      "label": "Senha",
+      "placeholder": "Digite sua senha"
+    }
   },
-  "login": {
-    "title": "Acessar",
-    "confirmPassword": "Confirme a Senha",
-    "email": "Email",
-    "password": "Senha",
-    "forgot": "Esqueceu sua senha?",
-    "signInBtnText": "Acessar",
-    "successMessage": "Login realizado com sucesso"
-  },
-  "background": {
-    "title": "Beta CRM",
-    "text": ""
-  },
-  "forgotPassword": {
-    "title": "Esqueci minha senha",
-    "subtitle": "Para redefinir sua senha informe o seu email abaixo. E enviaremos um email com as instruções seguras de redefinição.",
-    "email": "Email",
-    "resetBtnText": "Enviar"
-  },
-  "recoveryEmailSent": {
-    "title": "Email de Recuperação Enviado",
-    "subtitle": "",
-    "returnToLoginBtn": "Voltar a tela de login"
-  },
-  "resetPassword": {
-    "title": "Resetar Senha",
-    "subtitle": "Para proteger sua conta, crie uma senha forte",
-    "subtitle2": "Longa: pelo menos 8 caracteres.",
-    "subtitle3": "Incluir uma mistura de letras maiúsculas, minúsculas e números.",
-    "subtitle4": "Não ser uma palavra ou frase fácil de adivinhar.",
-    "passwordInput": "Senha",
-    "repeatPasswordInput": "Repetir Senha",
-    "resetBtn": "Redefinir"
-  },
-  "successPasswordUpdate": {
-    "title": "Senha Atualizada",
-    "subtitle": "",
-    "returnLoginScreenBtn": "Voltar para a tela de login"
-  },
-  "confirmAccount": {
-    "title": "Confirmar conta",
-    "subtitle": "Para proteger sua conta, crie uma senha forte com pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas e números, evitando palavras óbvias.",
-    "btnText": "Confirmar"
-  },
-  "resendEmail": {
-    "title": "Reenviar Email de Confirmação",
-    "subtitle": "Seu token de confirmação expirou, confirme para reenviar outro a sua caixa de email",
-    "btnText": "Reenviar",
-    "success": "Email enviado, por favor verifique sua caixa de email"
-  }
+  "forgotPassword": "Esqueceu a senha?",
+  "signIn": "Entrar"
 }
