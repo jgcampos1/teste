@@ -1,12 +1,12 @@
-import { Input } from "@/application/shared/components/ui/input";
-import { useToggle } from "@/application/shared/hooks/use-toggle";
-import { Eye, EyeClosed } from "@phosphor-icons/react";
+import { useToggle } from "~/application/shared/hooks/use-toggle";
+import { Eye, EyeClosed, SignIn } from "@phosphor-icons/react";
 import { FormLoginSchema } from "./form-login.schema";
 import { useFormContext } from "react-hook-form";
-import { Button } from "@/application/shared/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/main/types/routes-enum";
-import { useTranslation } from "@/application/shared/hooks/use-translation";
+import { ROUTES } from "~/main/types/routes-enum";
+import { useTranslation } from "~/application/shared/hooks/use-translation";
+import { Button } from "~/application/shared/components/button";
+import { TextInput } from "~/application/shared/components/text-input";
 
 interface Props {
   onSubmit: (data: FormLoginSchema) => void;
@@ -23,14 +23,14 @@ export const FormLogin = ({ onSubmit }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="space-y-2">
-        <Input
+        <TextInput
           placeholder={translate("form.email.placeholder")}
           label={translate("form.email.label")}
           name="email"
         />
       </div>
       <div className="space-y-2">
-        <Input
+        <TextInput
           placeholder={translate("form.password.placeholder")}
           label={translate("form.password.label")}
           name="password"
@@ -42,10 +42,12 @@ export const FormLogin = ({ onSubmit }: Props) => {
         />
       </div>
       <div className="w-full flex justify-between">
-        <Button variant={"link"} onClick={redirectToForgotPassword}>
-          {translate("forgotPassword")}
-        </Button>
-        <Button type="submit">{translate("signIn")}</Button>
+        <Button
+          variant={"link"}
+          onClick={redirectToForgotPassword}
+          title={translate("forgotPassword")}
+        />
+        <Button type="submit" title={translate("signIn")} icon={SignIn} />
       </div>
     </form>
   );

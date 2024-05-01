@@ -1,5 +1,5 @@
-import { IRoute } from "@/main/types/route-types";
-import { ROUTES } from "@/main/types/routes-enum";
+import { IRoute } from "~/main/types/route-types";
+import { ROUTES } from "~/main/types/routes-enum";
 import { ElementType } from "react";
 import { Navigate, type RouteProps } from "react-router-dom";
 

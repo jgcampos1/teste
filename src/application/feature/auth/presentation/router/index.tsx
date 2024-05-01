@@ -1,4 +1,4 @@
-import { IRoute } from "@/main/types/route-types";
+import { IRoute } from "~/main/types/route-types";
 import { Login } from "../pages/login";
 
 export const authRoutes: IRoute[] = [

@@ -1,4 +1,4 @@
-import { IRoute } from "@/main/types/route-types";
+import { IRoute } from "~/main/types/route-types";
 import { Dashboard } from "../pages/dashboard";
 
 export const generalRoutes: IRoute[] = [

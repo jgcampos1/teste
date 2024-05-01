@@ -1,6 +1,6 @@
-import { useTranslation } from "@/application/shared/hooks/use-translation";
+import { useTranslation } from "~/application/shared/hooks/use-translation";
 import { ITEMS_MENU } from "./constants/items-menu";
-import { cn } from "@/application/shared/lib/utils";
+import { cn } from "~/application/shared/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 
 interface Props {

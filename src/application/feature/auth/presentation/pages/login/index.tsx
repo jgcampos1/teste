@@ -1,7 +1,7 @@
 import { FormLoginSchema, resolver } from "./components/form-login.schema";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormLogin } from "./components/form-login";
-import { useTranslation } from "@/application/shared/hooks/use-translation";
+import { useTranslation } from "~/application/shared/hooks/use-translation";
 
 export const Login = () => {
   const { translate } = useTranslation("login");

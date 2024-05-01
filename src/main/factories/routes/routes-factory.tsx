@@ -1,6 +1,6 @@
-import ProtectRoute from "@/application/shared/components/protect-route";
-import { LayoutConfig } from "@/main/config/layout-config";
-import { IRoute } from "@/main/types/route-types";
+import ProtectRoute from "~/application/shared/components/protect-route";
+import { LayoutConfig } from "~/main/config/layout-config";
+import { IRoute } from "~/main/types/route-types";
 import { Route, Routes } from "react-router-dom";
 
 export const makeRoutes = (routes: IRoute[]) => {

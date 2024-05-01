@@ -1,13 +1,13 @@
 import { useToggle } from "../../hooks/use-toggle";
-import { Button } from "../ui/button";
+import { BaseButton } from "../../ui/button";
 import { cn } from "../../lib/utils";
 import { List, SignOut, TextIndent } from "@phosphor-icons/react";
 import { ListItems } from "../list-items";
 import { useEffect } from "react";
-import { cacheStorage } from "@/main/cache";
+import { cacheStorage } from "~/main/cache";
 import { useTranslation } from "../../hooks/use-translation";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/main/types/routes-enum";
+import { ROUTES } from "~/main/types/routes-enum";
 
 export const SideMenu = () => {
   const navigate = useNavigate();
@@ -31,16 +31,16 @@ export const SideMenu = () => {
     >
       <div className="flex gap-2 justify-between">
         {open && <img src="/images/logo-ituran-mob.png" className="w-2/3" />}
-        <Button
+        <BaseButton
           onClick={handleCollapseMenu}
           className="w-14 self-end"
           variant={"outline"}
         >
           {open ? <TextIndent size={32} /> : <List size={32} />}
-        </Button>
+        </BaseButton>
       </div>
       <ListItems collapsed={!open} />
-      <Button
+      <BaseButton
         variant={"destructive"}
         className={cn(
           "w-full flex justify-start gap-2 items-center p-2 shadow hover:bg-red-700"
@@ -50,7 +50,7 @@ export const SideMenu = () => {
         }}
       >
         <SignOut size={32} /> {open && translate("sideMenu.logout")}
-      </Button>
+      </BaseButton>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Button } from "../ui/button";
+import { BaseButton } from "../../ui/button";
 import { cn } from "../../lib/utils";
 import { List, SignOut } from "@phosphor-icons/react";
 
@@ -8,12 +8,12 @@ import {
   SheetContent,
   SheetFooter,
   SheetTrigger,
-} from "../ui/sheet";
+} from "../../ui/sheet";
 
 import { ListItems } from "../list-items";
 import { useTranslation } from "../../hooks/use-translation";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/main/types/routes-enum";
+import { ROUTES } from "~/main/types/routes-enum";
 
 export const HeaderMenu = () => {
   const { translate } = useTranslation();
@@ -27,9 +27,9 @@ export const HeaderMenu = () => {
     >
       <Sheet modal>
         <SheetTrigger>
-          <Button variant={"outline"}>
+          <BaseButton variant={"outline"}>
             <List size={22} />
-          </Button>
+          </BaseButton>
         </SheetTrigger>
 
         <SheetContent className="flex flex-col items-center ">
@@ -39,7 +39,7 @@ export const HeaderMenu = () => {
           </div>
           <SheetFooter className="bg-blue-400 flex">
             <SheetClose asChild>
-              <Button
+              <BaseButton
                 variant={"destructive"}
                 onClick={() => {
                   navigate(ROUTES.LOGIN);
@@ -49,7 +49,7 @@ export const HeaderMenu = () => {
                 )}
               >
                 <SignOut size={32} /> {translate("sideMenu.logout")}
-              </Button>
+              </BaseButton>
             </SheetClose>
           </SheetFooter>
         </SheetContent>

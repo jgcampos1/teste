@@ -1,5 +1,5 @@
 import { Icon, SquaresFour } from "@phosphor-icons/react";
-import { ROUTES } from "@/main/types/routes-enum";
+import { ROUTES } from "~/main/types/routes-enum";
 export type MenuItemType = {
   path: string;
   name: string;
