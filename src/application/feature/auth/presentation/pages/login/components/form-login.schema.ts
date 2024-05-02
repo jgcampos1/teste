@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 export const FormLoginValidation = z.object({
-  email: z
+  username: z
     .string()
     .min(1, { message: "REQUIRED_FIELD" })
     .email({ message: "INVALID_EMAIL" }),

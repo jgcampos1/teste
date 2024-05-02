@@ -14,7 +14,6 @@ export const Button = ({
   disabled,
   ...rest
 }: Props) => {
-  console.log({ loading, title });
   return (
     <BaseButton disabled={loading ? true : disabled} {...rest}>
       <div className=" flex gap-2 items-center ">

@@ -26,9 +26,10 @@ export const FormLogin = ({ onSubmit }: Props) => {
         <TextInput
           placeholder={translate("form.email.placeholder")}
           label={translate("form.email.label")}
-          name="email"
+          name="username"
         />
       </div>
+
       <div className="space-y-2">
         <TextInput
           placeholder={translate("form.password.placeholder")}

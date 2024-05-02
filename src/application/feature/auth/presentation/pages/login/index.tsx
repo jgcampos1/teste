@@ -2,15 +2,19 @@ import { FormLoginSchema, resolver } from "./components/form-login.schema";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormLogin } from "./components/form-login";
 import { useTranslation } from "~/application/shared/hooks/use-translation";
+import { useEmailLoginMutation } from "../../../store/hooks";
 
 export const Login = () => {
+  const [handleLogin, { isError, error }] = useEmailLoginMutation();
+
+  console.log(isError, error);
   const { translate } = useTranslation("login");
   const methods = useForm<FormLoginSchema>({
     resolver,
   });
 
   const onSubmit = (data: FormLoginSchema) => {
-    console.log({ data });
+    handleLogin(data);
   };
 
   return (
