@@ -10,7 +10,7 @@ export const emailLoginService: ServiceCommand<EmailLogin.Response> =
     httpAuthorizedClient,
     cacheStorage,
     AUTH_STORAGE_TOKENS.AUTH,
-    AUTH_STORAGE_TOKENS.REFRESH_TOKEN,
+    // AUTH_STORAGE_TOKENS.REFRESH_TOKEN,
     AUTH_API_ROUTES.LOGIN
   );
 

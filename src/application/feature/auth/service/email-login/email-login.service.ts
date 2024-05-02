@@ -16,7 +16,7 @@ export class EmailLogin
     private readonly httpClient: HttpClient,
     private readonly cacheStorage: CacheStorage,
     private readonly tokenKey: string,
-    private readonly refreshTokenKey: string,
+    // private readonly refreshTokenKey: string,
     private readonly url: string
   ) {}
 
@@ -40,7 +40,6 @@ export class EmailLogin
 
     const { id_token } = response;
 
-    console.log(id_token, response);
     this.cacheStorage.set(this.tokenKey, id_token);
 
     return success(response);

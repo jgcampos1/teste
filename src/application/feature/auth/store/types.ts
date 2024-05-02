@@ -23,5 +23,5 @@ const cacheLocalStorage = cacheStorage;
 const tokenKey = AUTH_STORAGE_TOKENS.AUTH;
 const tokenStorage = cacheLocalStorage.get<string>(tokenKey);
 export const SET_TOKEN_INITIAL_STATE: TokenModel = {
-  accessToken: tokenStorage,
+  id_token: tokenStorage,
 };

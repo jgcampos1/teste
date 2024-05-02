@@ -3,18 +3,29 @@ import { FormProvider, useForm } from "react-hook-form";
 import { FormLogin } from "./components/form-login";
 import { useTranslation } from "~/application/shared/hooks/use-translation";
 import { useEmailLoginMutation } from "../../../store/hooks";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "~/main/types/routes-enum";
 
 export const Login = () => {
   const [handleLogin, { isError, error }] = useEmailLoginMutation();
-
-  console.log(isError, error);
   const { translate } = useTranslation("login");
+
   const methods = useForm<FormLoginSchema>({
     resolver,
   });
 
+  console.log(isError, error);
+
+  const navigate = useNavigate();
+
   const onSubmit = (data: FormLoginSchema) => {
-    handleLogin(data);
+    handleLogin(data)
+      .unwrap()
+      .then((response) => {
+        console.log("response", response);
+
+        navigate(ROUTES.DASHBOARD);
+      });
   };
 
   return (

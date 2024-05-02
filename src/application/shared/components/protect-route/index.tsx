@@ -2,6 +2,7 @@ import { IRoute } from "~/main/types/route-types";
 import { ROUTES } from "~/main/types/routes-enum";
 import { ElementType } from "react";
 import { Navigate, type RouteProps } from "react-router-dom";
+import { useAuth } from "../../hooks/use-auth";
 
 type Props = RouteProps & {
   private: boolean;
@@ -10,7 +11,7 @@ type Props = RouteProps & {
 };
 
 const ProtectRoute = ({ private: isPrivate, Layout, element }: Props) => {
-  const { isAuthenticated } = { isAuthenticated: true };
+  const { isAuthenticated } = useAuth();
 
   const redirect = ROUTES?.LOGIN;
 

@@ -5,7 +5,7 @@ export const authRoutes: IRoute[] = [
   {
     path: "/login",
     name: "Login",
-    private: true,
+    private: false,
     element: <Login />,
     layout: "AuthFormLayout",
     roles: [],
