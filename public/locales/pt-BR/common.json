@@ -1,7 +1,15 @@
 {
+  "emptyValue": "Nenhum item encontrado",
+  "searchLabel": "Pesquisar",
   "sideMenu": {
     "dashboard": "Dashboard",
     "contracts": "Contratos",
     "logout": "Sair"
+  },
+  "profileMenu": {
+    "profile": "Perfil",
+    "logout": "Sair",
+    "settings": "Configurações",
+    "changePassword": "Alterar Senha"
   }
 }

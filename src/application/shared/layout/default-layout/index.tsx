@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 
-import { SideMenu } from "../../components/side-menu";
 import { useDeviceSizes } from "../../hooks/use-device";
-import { HeaderMenu } from "../../components/header-menu";
 import { cn } from "../../lib/utils";
+import { SideMenu } from "./components/side-menu";
+import { HeaderMenu } from "./components/header-menu";
+import { ProfileMenu } from "./components/profile-menu";
 
 interface Props {
   children: ReactNode;
@@ -14,7 +15,12 @@ const DefaultLayout = ({ children }: Props) => {
   return (
     <div className={cn("flex", !isDesktop && "flex-col")}>
       {isDesktop ? <SideMenu /> : <HeaderMenu />}
-      <div className="flex-1 h-screen p-4">{children}</div>
+      <div className="flex-1 h-screen">
+        <div className="w-full h-14 shadow-lg flex items-center justify-end px-5">
+          <ProfileMenu />
+        </div>
+        <div className="p-4">{children}</div>
+      </div>
     </div>
   );
 };

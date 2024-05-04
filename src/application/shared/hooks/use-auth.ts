@@ -9,6 +9,9 @@ export const useAuth = () => {
   const authData = useAppSelector(({ auth }) => auth);
   const accessTokenKey = AUTH_STORAGE_TOKENS.AUTH;
   const navigate = useNavigate();
+  const user = {
+    name: "John Doe",
+  };
 
   const accessTokenStorage = cacheStorage.get<string>(accessTokenKey);
 
@@ -27,5 +30,5 @@ export const useAuth = () => {
     navigate(ROUTES.LOGIN);
   };
 
-  return { isAuthenticated, logout };
+  return { isAuthenticated, logout, user };
 };

@@ -1,10 +1,12 @@
+import { ReactNode } from "react";
 import { BaseButton, ButtonProps } from "../../ui/button";
 import Spinner from "../spinner";
 import { Icon } from "@phosphor-icons/react";
 
 type Props = ButtonProps & {
   loading?: boolean;
-  title: string | React.ReactNode;
+  children?: ReactNode;
+  title?: string;
   icon?: Icon;
 };
 export const Button = ({
@@ -12,6 +14,7 @@ export const Button = ({
   loading,
   icon: Icon,
   disabled,
+  children,
   ...rest
 }: Props) => {
   return (
@@ -26,7 +29,7 @@ export const Button = ({
             {Icon && <Icon size={16} weight="bold" className="fill-gray-100" />}
           </>
         )}
-        {title}
+        {children || title}
       </div>
     </BaseButton>
   );

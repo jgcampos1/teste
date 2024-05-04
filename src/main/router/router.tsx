@@ -8,7 +8,7 @@ import { store } from "../core/store/store";
 const Router = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>{makeRoutes(appRoutes)}</BrowserRouter>;
+      <BrowserRouter>{makeRoutes(appRoutes)}</BrowserRouter>
     </Provider>
   );
 };

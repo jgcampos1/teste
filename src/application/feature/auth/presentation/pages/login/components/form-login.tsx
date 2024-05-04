@@ -43,11 +43,11 @@ export const FormLogin = ({ onSubmit }: Props) => {
         />
       </div>
       <div className="w-full flex flex-col items-end justify-between">
-        <Button type="submit" title={translate("signIn")} icon={SignIn} />
+        <Button type="submit" content={translate("signIn")} icon={SignIn} />
         <Button
           variant={"link"}
           onClick={redirectToForgotPassword}
-          title={translate("forgotPassword")}
+          content={translate("forgotPassword")}
         />
       </div>
     </form>
