@@ -16,9 +16,12 @@ const DefaultLayout = ({ children }: Props) => {
     <div className={cn("flex", !isDesktop && "flex-col")}>
       {isDesktop ? <SideMenu /> : <HeaderMenu />}
       <div className="flex-1 h-screen">
-        <div className="w-full h-14 shadow-lg flex items-center justify-end px-5">
-          <ProfileMenu />
-        </div>
+        {isDesktop && (
+          <div className="w-full h-14 shadow-lg flex items-center justify-end px-5">
+            <ProfileMenu />
+          </div>
+        )}
+
         <div className="p-4">{children}</div>
       </div>
     </div>

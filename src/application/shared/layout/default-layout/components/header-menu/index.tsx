@@ -7,12 +7,13 @@ import {
 } from "~/application/shared/ui/sheet";
 import { BaseButton } from "~/application/shared/ui/button";
 import { cn } from "~/application/shared/lib/utils";
+import { ProfileMenu } from "../profile-menu";
 
 export const HeaderMenu = () => {
   return (
     <div
       className={cn(
-        "w-full min-wih-screen h-13 bg-background flex justify-end p-1"
+        "w-full min-wih-screen shadow h-13  flex justify-between p-2"
       )}
     >
       <Sheet modal>
@@ -29,6 +30,7 @@ export const HeaderMenu = () => {
           </div>
         </SheetContent>
       </Sheet>
+      <ProfileMenu />
     </div>
   );
 };

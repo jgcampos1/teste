@@ -2,7 +2,7 @@ import { cn } from "../../lib/utils";
 import { avatarUrlGenerate } from "../../ultils/helpers/avatar-url-generate";
 
 interface Props {
-  name: string;
+  name?: string;
   avatarUrl?: string;
   size?: number;
 }
