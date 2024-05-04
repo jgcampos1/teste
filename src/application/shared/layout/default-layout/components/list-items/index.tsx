@@ -13,7 +13,7 @@ export const ListItems = ({ collapsed }: Props) => {
   const { pathname } = useLocation();
 
   return (
-    <div className="mt-5 w-full flex flex-col items-center justify-start gap-2 flex-1">
+    <div className="mt-2 w-full flex flex-col items-center justify-start gap-2 flex-1">
       {ITEMS_MENU.map((item) => {
         const selectedPath = pathname === item.path;
 

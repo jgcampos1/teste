@@ -6,7 +6,7 @@ import { Input } from "../../ui/input";
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   name: string;
-  control?: Control<any>;
+  control?: Control;
   icon?: {
     start?: Icon;
     end?: Icon;

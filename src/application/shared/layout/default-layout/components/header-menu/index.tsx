@@ -8,6 +8,7 @@ import {
 import { BaseButton } from "~/application/shared/ui/button";
 import { cn } from "~/application/shared/lib/utils";
 import { ProfileMenu } from "../profile-menu";
+import { SelectLanguage } from "~/application/shared/components/select-language";
 
 export const HeaderMenu = () => {
   return (
@@ -28,6 +29,7 @@ export const HeaderMenu = () => {
             <img src="/images/logo-ituran-mob.png" className="w-2/3 max-w-36" />
             <ListItems />
           </div>
+          <SelectLanguage />
         </SheetContent>
       </Sheet>
       <ProfileMenu />

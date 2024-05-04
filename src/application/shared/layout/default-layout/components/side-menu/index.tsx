@@ -23,11 +23,11 @@ export const SideMenu = () => {
   return (
     <div
       className={cn(
-        "min-wih-screen h-screen  flex flex-col justify-start items-center gap-2 p-1 shadow-md",
+        "min-wih-screen h-screen  flex flex-col justify-start items-center gap-1 p-1 shadow-md",
         open ? "w-2/12 min-w-3/12 " : "w-1/12 min-w-1/12"
       )}
     >
-      <div className="flex gap-2 justify-between p-4">
+      <div className="flex gap-1 justify-between p-4">
         {open && <img src="/images/logo-ituran-mob.png" className="w-2/3" />}
         <BaseButton
           onClick={handleCollapseMenu}

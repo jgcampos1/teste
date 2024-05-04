@@ -11,5 +11,10 @@
     "logout": "Sair",
     "settings": "Configurações",
     "changePassword": "Alterar Senha"
+  },
+  "translations": {
+    "selectPlaceholder": "Selecione um idioma",
+    "en": "Inglês",
+    "pt": "Português"
   }
 }
