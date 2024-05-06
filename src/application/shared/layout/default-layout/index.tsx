@@ -6,6 +6,7 @@ import { SideMenu } from "./components/side-menu";
 import { HeaderMenu } from "./components/header-menu";
 import { ProfileMenu } from "./components/profile-menu";
 import { SelectLanguage } from "../../components/select-language";
+import { SelectContract } from "../../components/select-contract";
 
 interface Props {
   children: ReactNode;
@@ -20,6 +21,7 @@ const DefaultLayout = ({ children }: Props) => {
         {isDesktop && (
           <div className="w-full h-14 shadow-lg flex items-center justify-end px-5 gap-2">
             <SelectLanguage />
+            <SelectContract />
             <ProfileMenu />
           </div>
         )}

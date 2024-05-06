@@ -21,9 +21,7 @@ export const Login = () => {
   const onSubmit = (data: FormLoginSchema) => {
     handleLogin(data)
       .unwrap()
-      .then((response) => {
-        console.log("response", response);
-
+      .then(() => {
         navigate(ROUTES.DASHBOARD);
       });
   };

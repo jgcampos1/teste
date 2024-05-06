@@ -16,5 +16,10 @@
     "selectPlaceholder": "Selecione um idioma",
     "en": "Inglês",
     "pt": "Português"
+  },
+  "contract": {
+    "placeholder": "Selecione um contrato",
+    "emptyValue": "Nenhum item encontrado",
+    "searchLabel": "Pesquisar"
   }
 }

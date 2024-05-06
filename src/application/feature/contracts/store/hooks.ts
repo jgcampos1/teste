@@ -1,3 +1,4 @@
 import { contractApi } from "./api";
 
-export const { useGetContractByUserMutation } = contractApi;
+export const { useGetContractByUserMutation, useLazyGetContractQuery } =
+  contractApi;

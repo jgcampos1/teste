@@ -1,40 +1,34 @@
-import { useEffect, useMemo } from "react";
-import { useAppSelector } from "./use-app-selector";
+import { useEffect } from "react";
 import { cacheStorage } from "~/main/cache";
 import { AUTH_STORAGE_TOKENS } from "~/application/feature/auth/domain/entities/auth-tokens";
 import { ROUTES } from "~/main/types/routes-enum";
 import { useNavigate } from "react-router-dom";
-import { useGetAccountMutation } from "~/application/feature/account/store/hooks";
+import { useGetAccountQuery } from "~/application/feature/account/store/hooks";
+import { useAuthStore } from "~/application/feature/auth/store/auth-store";
 
 export const useAuth = () => {
-  const authData = useAppSelector(({ auth }) => auth);
+  const { setAuth, authUser } = useAuthStore();
   const accessTokenKey = AUTH_STORAGE_TOKENS.AUTH;
   const navigate = useNavigate();
 
-  const [getUser, { data: user }] = useGetAccountMutation();
+  const { data: user } = useGetAccountQuery();
 
   const accessTokenStorage = cacheStorage.get<string>(accessTokenKey);
 
-  const isAuthenticated = useMemo(() => {
-    console.log(
-      "authData",
-      authData,
-      accessTokenStorage,
-      !!authData?.id_token || !!accessTokenStorage
-    );
-    return !!authData?.id_token || !!accessTokenStorage;
-  }, [authData, accessTokenStorage]);
-
   useEffect(() => {
-    if (isAuthenticated) {
-      getUser();
+    if (user) {
+      setAuth(user);
     }
-  }, [isAuthenticated, getUser]);
+  }, [user, setAuth]);
 
   const logout = () => {
     cacheStorage.set(accessTokenKey, null);
     navigate(ROUTES.LOGIN);
   };
 
-  return { isAuthenticated, logout, user };
+  return {
+    isAuthenticated: !!authUser || !!accessTokenStorage,
+    logout,
+    user,
+  };
 };

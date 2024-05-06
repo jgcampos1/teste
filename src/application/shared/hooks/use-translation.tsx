@@ -3,7 +3,7 @@ import { useTranslation as i18NextUseTranslation } from "react-i18next";
 import { AvailableLanguages, Translation } from "../types/translation";
 import { useCallback, useEffect } from "react";
 import { cacheStorage } from "~/main/cache";
-import { GENERAL_STORAGE_TOKENS } from "~/application/feature/general/domain/entities/general-tokens";
+import { STORAGE_TOKENS } from "~/main/core/domain/entities/storage-tokens";
 
 export const useTranslation = (namespace?: string | string[]): Translation => {
   const {
@@ -14,13 +14,13 @@ export const useTranslation = (namespace?: string | string[]): Translation => {
   const updateLanguage = useCallback(
     (newLanguage: AvailableLanguages): void => {
       changeLanguage(newLanguage);
-      cacheStorage.set(GENERAL_STORAGE_TOKENS.LANGUAGE, newLanguage);
+      cacheStorage.set(STORAGE_TOKENS.LANGUAGE, newLanguage);
     },
     [changeLanguage]
   );
 
   useEffect(() => {
-    const storedValue = cacheStorage.get(GENERAL_STORAGE_TOKENS.LANGUAGE);
+    const storedValue = cacheStorage.get(STORAGE_TOKENS.LANGUAGE);
     if (storedValue) {
       updateLanguage(storedValue as AvailableLanguages);
     }

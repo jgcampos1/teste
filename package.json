@@ -2,6 +2,7 @@
   "name": "boilerplate",
   "private": true,
   "version": "0.0.0",
+  "repository": "postcss/postcss",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -39,7 +40,8 @@
     "tailwindcss-animate": "^1.0.7",
     "url": "^0.11.3",
     "vite-plugin-environment": "^1.1.3",
-    "zod": "^3.23.5"
+    "zod": "^3.23.5",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
@@ -48,15 +50,17 @@
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.38",
     "prettier": "^3.2.5",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.2.11"
   }
 }

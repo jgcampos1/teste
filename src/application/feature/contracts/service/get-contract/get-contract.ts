@@ -7,24 +7,26 @@ import { ServiceCommand } from "~/main/core/domain/command/service-command";
 import { error, success } from "~/main/core/domain/either/either";
 import { ContractModel } from "../../domain/model/contract.model";
 
-export class GetContractByUser
-  implements
-    ServiceCommand<GetContractByUser.Response, GetContractByUser.Params>
+export class GetContract
+  implements ServiceCommand<GetContract.Response, GetContract.Params>
 {
   constructor(
     private readonly httpClient: HttpClient,
     private readonly url: string
   ) {}
 
-  async execute(): Promise<
-    ServiceCommand.Response<GetContractByUser.Response>
+  async execute({
+    id,
+  }: GetContract.Params): Promise<
+    ServiceCommand.Response<GetContract.Response>
   > {
+    const url = this.url.replace(":id", id.toString());
     const httpResponse = await this.httpClient.request({
       method: HttpMethod.GET,
-      url: this.url,
+      url: url,
     });
     const responseOrError =
-      RequestResponse.handle<GetContractByUser.Response>(httpResponse);
+      RequestResponse.handle<GetContract.Response>(httpResponse);
 
     if (responseOrError.isError()) {
       return error(responseOrError.value);
@@ -36,7 +38,7 @@ export class GetContractByUser
   }
 }
 
-export namespace GetContractByUser {
-  export type Params = void;
-  export type Response = ContractModel[];
+export namespace GetContract {
+  export type Params = { id: number };
+  export type Response = ContractModel;
 }

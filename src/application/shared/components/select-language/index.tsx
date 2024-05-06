@@ -20,7 +20,6 @@ export const SelectLanguage = () => {
     ...item,
     label: translate(item.label),
   }));
-  console.log({ language });
 
   useEffect(() => {
     if (language) updateLanguage(language as AvailableLanguages);

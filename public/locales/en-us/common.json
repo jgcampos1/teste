@@ -1,7 +1,25 @@
 {
+  "emptyValue": "Nenhum item encontrado",
+  "searchLabel": "Pesquisar",
   "sideMenu": {
     "dashboard": "Dashboard",
-    "contracts": "Contracts",
-    "logout": "Log out"
+    "contracts": "Contratos",
+    "logout": "Sair"
+  },
+  "profileMenu": {
+    "profile": "Perfil",
+    "logout": "Sair",
+    "settings": "Configurações",
+    "changePassword": "Alterar Senha"
+  },
+  "translations": {
+    "selectPlaceholder": "Selecione um idioma",
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "contract": {
+    "placeholder": "Selecione um contrato",
+    "emptyValue": "Nenhum item a d asencontrado",
+    "searchLabel": "Pesquisar"
   }
 }

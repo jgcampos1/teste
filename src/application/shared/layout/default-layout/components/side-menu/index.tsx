@@ -19,7 +19,6 @@ export const SideMenu = () => {
     set(menuValue || false);
   }, [set]);
 
-  console.log(open, "open");
   return (
     <div
       className={cn(

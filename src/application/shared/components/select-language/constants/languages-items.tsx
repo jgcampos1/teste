@@ -1,8 +1,9 @@
+import { AvailableLanguages } from "~/application/shared/types/translation";
 import { OptionsModel } from "../../combobox";
 
 export const LANGUAGES_ITEMS: OptionsModel[] = [
   {
-    id: "pt-BR",
+    id: "pt-BR" as AvailableLanguages,
     label: "translations.pt",
     icon: (
       <img
@@ -13,7 +14,7 @@ export const LANGUAGES_ITEMS: OptionsModel[] = [
   },
   {
     label: "translations.en",
-    id: "en-us",
+    id: "en-us" as AvailableLanguages,
     icon: (
       <img
         className={"h-6 w-6 rounded-full object-cover"}
