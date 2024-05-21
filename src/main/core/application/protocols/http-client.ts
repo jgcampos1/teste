@@ -8,6 +8,7 @@ export type HttpRequest<T = unknown> = {
   queryParams?: Record<string, string>;
   method: HttpMethod;
   url: string;
+  mode?: RequestMode;
 };
 
 export type HttpResponse<T = unknown> = HttpSuccess<T> | HttpError;

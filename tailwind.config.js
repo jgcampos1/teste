@@ -27,13 +27,14 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "hsl(var(--minha-primary))",
         foreground: "hsl(var(--foreground))",
 
         primary: {
-          DEFAULT: colors.blue[500],
+          DEFAULT: "hsl(var(--minha-primary))",
+          500: "hsl(var(--minha-primary))",
           foreground: colors.blue[50],
-          ...colors.blue,
+          // ...colors.blue,
         },
         secondary: {
           DEFAULT: colors.slate[500],

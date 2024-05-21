@@ -6,7 +6,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   Button,
@@ -49,6 +49,7 @@ export function DataTable<TData, TValue>({
   emptyMessage,
   primaryButton,
   showFetcherButton = true,
+  onFetchData,
 }: DataTableProps<TData, TValue>) {
   const { translate } = useTranslation("common");
 
@@ -57,23 +58,33 @@ export function DataTable<TData, TValue>({
     pageSize: 10,
   });
 
+  useEffect(() => {
+    onFetchData({
+      page: pagination.pageIndex,
+      pageSize: pagination.pageSize,
+    });
+  }, [pagination, onFetchData]);
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    pageCount: Math.ceil(data.length / pagination.pageSize), // Update based on total data length
+    manualPagination: true,
     onPaginationChange: setPagination,
     state: { pagination },
   });
+
   const methods = useForm();
 
   return (
     <div className="flex flex-col flex-1 gap-2">
-      <div className="flex items-center justify-between  gap-2 flex-wrap">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
         <div className="flex gap-2 items-end">
           <FormProvider {...methods}>
             {searchMode && (
               <TextInput
-                className="w-max mt-0 m-0 "
+                className="w-max mt-0 m-0"
                 icon={{ start: MagnifyingGlass }}
                 name="search"
                 placeholder={translate("searchLabel")}
@@ -81,7 +92,11 @@ export function DataTable<TData, TValue>({
             )}
           </FormProvider>
           {showFetcherButton && (
-            <Button onClick={() => {}} variant="ghost" size="icon">
+            <Button
+              onClick={() => onFetchData(pagination)}
+              variant="ghost"
+              size="icon"
+            >
               <ArrowClockwise size={22} className="text-primary-500" />
             </Button>
           )}
@@ -137,19 +152,44 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-        <Pagination className="flex w-full  justify-end">
+        <Pagination className="flex w-full justify-end">
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <PaginationPrevious
+                href="#"
+                onClick={() =>
+                  setPagination((prev) => ({
+                    ...prev,
+                    pageIndex: Math.max(prev.pageIndex - 1, 0),
+                  }))
+                }
+              />
             </PaginationItem>
+            {[...Array(table.getPageCount()).keys()].map((page) => (
+              <PaginationItem key={page}>
+                <PaginationLink
+                  href="#"
+                  onClick={() =>
+                    setPagination((prev) => ({ ...prev, pageIndex: page }))
+                  }
+                >
+                  {page + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">{1}</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationNext
+                href="#"
+                onClick={() =>
+                  setPagination((prev) => ({
+                    ...prev,
+                    pageIndex: Math.min(
+                      prev.pageIndex + 1,
+                      table.getPageCount() - 1
+                    ),
+                  }))
+                }
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

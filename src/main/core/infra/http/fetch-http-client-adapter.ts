@@ -14,6 +14,7 @@ export class FetchHttpClientAdapter implements HttpClient {
     body,
     headers,
     queryParams,
+    mode,
   }: HttpRequest): Promise<HttpResponse> {
     try {
       const lang: string =
@@ -22,13 +23,14 @@ export class FetchHttpClientAdapter implements HttpClient {
         (cacheStorage.get(STORAGE_TOKENS.CONTRACT_ID) as string) || "";
       const requestHeaders: HeadersInit = new Headers({
         ...(headers ?? {}),
-        "Content-Type": "application/json", // Assuming JSON data
+        "Content-Type": "application/json",
       });
 
       const fetchOptions: RequestInit = {
         method,
         headers: requestHeaders,
-        body: JSON.stringify(body), // Convert body to JSON string
+        body: JSON.stringify(body),
+        mode,
       };
 
       const queryString = new URLSearchParams({
