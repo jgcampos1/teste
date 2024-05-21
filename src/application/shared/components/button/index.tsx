@@ -3,7 +3,7 @@ import { BaseButton, ButtonProps } from "../../ui/button";
 import Spinner from "../spinner";
 import { Icon } from "@phosphor-icons/react";
 
-type Props = ButtonProps & {
+export type InterfaceButton = ButtonProps & {
   loading?: boolean;
   children?: ReactNode;
   title?: string;
@@ -16,7 +16,7 @@ export const Button = ({
   disabled,
   children,
   ...rest
-}: Props) => {
+}: InterfaceButton) => {
   return (
     <BaseButton disabled={loading ? true : disabled} {...rest}>
       <div className=" flex gap-2 items-center ">

@@ -9,7 +9,7 @@ interface Props {
   collapsed?: boolean;
 }
 export const ListItems = ({ collapsed }: Props) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslation("common");
   const { pathname } = useLocation();
 
   return (
@@ -18,14 +18,20 @@ export const ListItems = ({ collapsed }: Props) => {
         const selectedPath = pathname === item.path;
 
         if (!!item?.subRoutes?.length && item?.subRoutes?.length > 0) {
-          return <SubItem menuItem={item} collapsed={collapsed || false} />;
+          return (
+            <SubItem
+              menuItem={item}
+              key={item.path}
+              collapsed={collapsed || false}
+            />
+          );
         }
         return (
           <Link
             key={item.path}
             to={item.path}
             className={cn(
-              "p-1 flex items-center gap-2 justify-start rounded shadow-lg w-full hover:bg-primary-100",
+              "p-1 flex items-center gap-2 justify-start rounded  w-full hover:bg-primary-100",
               collapsed && "w-fit justify-center px-3",
               selectedPath && "bg-primary-500 hover:bg-primary-400"
             )}
@@ -42,8 +48,8 @@ export const ListItems = ({ collapsed }: Props) => {
                 {!collapsed && (
                   <p
                     className={cn(
-                      "text-xs text-primary-400",
-                      selectedPath && "text-gray-50"
+                      "text-xs text-primary-400 text-clip",
+                      selectedPath && "text-gray-50 "
                     )}
                   >
                     {translate(`sideMenu.${item?.name}`)}

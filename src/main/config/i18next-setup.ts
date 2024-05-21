@@ -3,15 +3,14 @@ import { initReactI18next } from "react-i18next";
 import i18next, { InitOptions } from "i18next";
 import Backend from "i18next-http-backend";
 
-const availableLanguages = ["en-us", "pt-BR"];
+const availableLanguages = ["en-US", "pt-BR"];
 
 const translationOptions: InitOptions = {
-  lng: "pt-BR",
+  lng: "en",
   load: "currentOnly",
   preload: availableLanguages,
   debug: false,
   supportedLngs: availableLanguages,
-  fallbackLng: "pt-BR",
   defaultNS: ["common", "exception"],
   ns: ["common", "exception"],
   react: {

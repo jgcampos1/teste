@@ -3,8 +3,7 @@
   "searchLabel": "Pesquisar",
   "sideMenu": {
     "dashboard": "Dashboard",
-    "contracts": "Contratos",
-    "logout": "Sair"
+    "contracts": "Contratos"
   },
   "profileMenu": {
     "profile": "Perfil",
@@ -19,7 +18,11 @@
   },
   "contract": {
     "placeholder": "Selecione um contrato",
-    "emptyValue": "Nenhum item a d asencontrado",
+    "emptyValue": "Nenhum item encontrado",
     "searchLabel": "Pesquisar"
+  },
+  "table": {
+    "nextPage": "Next",
+    "previousPage": "Previous"
   }
 }

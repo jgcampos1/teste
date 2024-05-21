@@ -14,7 +14,7 @@ export const HeaderMenu = () => {
   return (
     <div
       className={cn(
-        "w-full min-wih-screen shadow h-13  flex justify-between p-2"
+        "w-full min-wih-screen shadow h-14  flex justify-between p-2 "
       )}
     >
       <Sheet modal>

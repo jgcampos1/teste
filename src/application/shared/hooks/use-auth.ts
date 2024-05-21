@@ -7,7 +7,7 @@ import { useGetAccountQuery } from "~/application/feature/account/store/hooks";
 import { useAuthStore } from "~/application/feature/auth/store/auth-store";
 
 export const useAuth = () => {
-  const { setAuth, authUser } = useAuthStore();
+  const { setAuth, authUser, clear } = useAuthStore();
   const accessTokenKey = AUTH_STORAGE_TOKENS.AUTH;
   const navigate = useNavigate();
 
@@ -16,14 +16,15 @@ export const useAuth = () => {
   const accessTokenStorage = cacheStorage.get<string>(accessTokenKey);
 
   useEffect(() => {
-    if (user) {
+    if (user && !authUser) {
       setAuth(user);
     }
-  }, [user, setAuth]);
+  }, [user, setAuth, authUser]);
 
   const logout = () => {
     cacheStorage.set(accessTokenKey, null);
     navigate(ROUTES.LOGIN);
+    clear();
   };
 
   return {

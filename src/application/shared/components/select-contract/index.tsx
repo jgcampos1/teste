@@ -18,10 +18,11 @@ import { ContractModel } from "~/application/feature/contracts/domain/model/cont
 import { passToAlphabeticOrder } from "../../ultils/helpers/pass-to-alphabetic-order";
 
 import { useContractStore } from "~/application/feature/contracts/store/contract-store";
-import { ArrowsCounterClockwise, Check } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { useTranslation } from "../../hooks/use-translation";
 import { STORAGE_TOKENS } from "~/main/core/domain/entities/storage-tokens";
+import { CaretSortIcon } from "@radix-ui/react-icons";
 
 export type CompanyList = {
   [key: string]: {
@@ -96,7 +97,7 @@ export const SelectContract = () => {
     <>
       <Button onClick={() => setOpen(true)} variant={"outline"}>
         <p>{contract?.name}</p>
-        <ArrowsCounterClockwise size={14} className="text-primary-500" />
+        <CaretSortIcon className="text-gray-500" />
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder={translate("contract.searchLabel")} />
@@ -104,9 +105,10 @@ export const SelectContract = () => {
           <CommandEmpty>{translate("contract.emptyValue")}</CommandEmpty>
           {contractForCompanies.map((company) => {
             return (
-              <CommandGroup heading={company.name}>
+              <CommandGroup heading={company.name} key={company?.id}>
                 {company?.contracts?.map((item) => (
                   <div
+                    key={item?.id}
                     className="flex w-full font-bold cursor-pointer "
                     onClick={() => {
                       changeContract(item);

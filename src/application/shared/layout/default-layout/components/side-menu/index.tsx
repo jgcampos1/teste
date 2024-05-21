@@ -23,7 +23,7 @@ export const SideMenu = () => {
     <div
       className={cn(
         "min-wih-screen h-screen  flex flex-col justify-start items-center gap-1 p-1 shadow-md",
-        open ? "w-2/12 min-w-3/12 " : "w-1/12 min-w-1/12"
+        open ? "w-64 min-w-64 " : "w-1/12 min-w-1/12"
       )}
     >
       <div className="flex gap-1 justify-between p-4">
@@ -31,7 +31,7 @@ export const SideMenu = () => {
         <BaseButton
           onClick={handleCollapseMenu}
           className="w-14 self-end"
-          variant={"outline"}
+          variant={"ghost"}
         >
           {open ? <TextIndent size={32} /> : <List size={32} />}
         </BaseButton>

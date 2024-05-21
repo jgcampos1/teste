@@ -14,7 +14,7 @@ export const LANGUAGES_ITEMS: OptionsModel[] = [
   },
   {
     label: "translations.en",
-    id: "en-us" as AvailableLanguages,
+    id: "en-US" as AvailableLanguages,
     icon: (
       <img
         className={"h-6 w-6 rounded-full object-cover"}

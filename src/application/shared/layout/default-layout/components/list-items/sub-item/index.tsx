@@ -40,7 +40,7 @@ export const SubItem = ({ menuItem, collapsed }: Props) => {
   return (
     <div
       className={cn(
-        "flex flex-col w-full rounded-sm shadow-md",
+        "flex flex-col w-full rounded-sm",
         collapsed && "w-fit justify-center"
       )}
     >

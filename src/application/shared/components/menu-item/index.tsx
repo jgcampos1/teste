@@ -30,6 +30,7 @@ export const MenuItem = ({ items, children }: Props) => {
           {items.map(({ onClick, label, icon, variant }, index) => (
             <>
               <DropdownMenuItem
+                key={index}
                 className={cn(
                   "flex gap-2 cursor-pointer p-2 hover:bg-gray-100",
                   variant === "destructive" && "bg-destructive text-white"
