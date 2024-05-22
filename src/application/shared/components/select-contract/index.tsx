@@ -17,12 +17,12 @@ import {
 import { ContractModel } from "~/application/feature/contracts/domain/model/contract.model";
 import { passToAlphabeticOrder } from "../../ultils/helpers/pass-to-alphabetic-order";
 
-import { useContractStore } from "~/application/feature/contracts/store/contract-store";
 import { Check } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { useTranslation } from "../../hooks/use-translation";
 import { STORAGE_TOKENS } from "~/main/core/domain/entities/storage-tokens";
 import { CaretSortIcon } from "@radix-ui/react-icons";
+import { useContractStore } from "~/application/feature/contracts/store/contract.store";
 
 export type CompanyList = {
   [key: string]: {

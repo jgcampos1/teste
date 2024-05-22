@@ -78,7 +78,7 @@ export function DataTable<TData, TValue>({
   const methods = useForm();
 
   return (
-    <div className="flex flex-col flex-1 gap-2">
+    <div className="flex flex-col flex-1 gap-2 mt-10">
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <div className="flex gap-2 items-end">
           <FormProvider {...methods}>

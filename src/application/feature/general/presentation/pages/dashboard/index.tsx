@@ -1,5 +1,5 @@
 import { useAuthStore } from "~/application/feature/auth/store/auth-store";
-import { useContractStore } from "~/application/feature/contracts/store/contract-store";
+import { useContractStore } from "~/application/feature/contracts/store/contract.store";
 import { useTranslation } from "~/application/shared/hooks/use-translation";
 
 import { TitlePage } from "~/application/shared/components/title-page";

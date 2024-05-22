@@ -9,8 +9,12 @@ import { BaseButton } from "~/application/shared/ui/button";
 import { cn } from "~/application/shared/lib/utils";
 import { ProfileMenu } from "../profile-menu";
 import { SelectLanguage } from "~/application/shared/components/select-language";
+import { useThemeStore } from "~/application/feature/general/store/theme.store";
 
 export const HeaderMenu = () => {
+  const { theme } = useThemeStore();
+  const imageUrl = theme?.logo || "/images/logo-ituran-mob.png";
+
   return (
     <div
       className={cn(
@@ -26,7 +30,7 @@ export const HeaderMenu = () => {
 
         <SheetContent className="flex flex-col items-center ">
           <div className="flex gap-2 flex-col justify-between flex-1 w-full h-full">
-            <img src="/images/logo-ituran-mob.png" className="w-2/3 max-w-36" />
+            <img src={imageUrl} className="w-2/3 max-w-36" />
             <ListItems />
           </div>
           <SelectLanguage />

@@ -2,23 +2,21 @@ import { BrowserRouter } from "react-router-dom";
 
 import { appRoutes } from "../config/routes-config";
 import { makeRoutes } from "../factories/routes/routes-factory";
-import { Provider } from "react-redux";
-import { store } from "../core/store/store";
 import { ThemeProvider } from "../provider/theme-provider";
+import { useControllerTheme } from "~/application/shared/hooks/use-controller-theme";
 
 const Router = () => {
+  useControllerTheme();
   return (
-    <Provider store={store}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem={true}
-        themes={["light", "dark", "system"]}
-        disableTransitionOnChange
-      >
-        <BrowserRouter>{makeRoutes(appRoutes)}</BrowserRouter>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem={true}
+      themes={["light", "dark", "system"]}
+      disableTransitionOnChange
+    >
+      <BrowserRouter>{makeRoutes(appRoutes)}</BrowserRouter>
+    </ThemeProvider>
   );
 };
 

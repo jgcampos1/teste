@@ -5,15 +5,18 @@ import { cacheStorage } from "~/main/cache";
 import { useToggle } from "~/application/shared/hooks/use-toggle";
 import { cn } from "~/application/shared/lib/utils";
 import { BaseButton } from "~/application/shared/ui/button";
+import { useThemeStore } from "~/application/feature/general/store/theme.store";
 
 export const SideMenu = () => {
   const [open, toggleMenu, { set }] = useToggle(false);
-
+  const { theme } = useThemeStore();
+  const imageUrl = theme?.logo || "/images/logo-ituran-mob.png";
   const handleCollapseMenu = () => {
     cacheStorage.set("@menu", !open);
     toggleMenu();
   };
 
+  console.log(theme?.logo);
   useEffect(() => {
     const menuValue = cacheStorage.get<boolean>("@menu");
     set(menuValue || false);
@@ -27,7 +30,7 @@ export const SideMenu = () => {
       )}
     >
       <div className="flex gap-1 justify-between p-4">
-        {open && <img src="/images/logo-ituran-mob.png" className="w-2/3" />}
+        {open && <img src={imageUrl} className="w-2/3" />}
         <BaseButton
           onClick={handleCollapseMenu}
           className="w-14 self-end"

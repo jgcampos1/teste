@@ -1,7 +1,11 @@
+import { useEffect } from "react";
+
 type RGB = [number, number, number];
 type HSL = [number, number, number];
 
-const hexToRgb = (hex: string): RGB => {
+const hexToRgb = (hex: string): RGB | null => {
+  if (!hex) return null;
+
   hex = hex.replace(/^#/, "");
   const bigint = parseInt(hex, 16);
   const r = (bigint >> 16) & 255;
@@ -10,7 +14,9 @@ const hexToRgb = (hex: string): RGB => {
   return [r, g, b];
 };
 
-const rgbToHsl = (r: number, g: number, b: number): HSL => {
+const rgbToHsl = (r: number, g: number, b: number): HSL | null => {
+  if (r === null || g === null || b === null) return null;
+
   r /= 255;
   g /= 255;
   b /= 255;
@@ -41,7 +47,13 @@ const rgbToHsl = (r: number, g: number, b: number): HSL => {
 };
 
 const adjustLightness = (rgb: RGB, factor: number): string => {
-  const [h, s, l] = rgbToHsl(...rgb);
+  const hsl = rgbToHsl(...rgb);
+
+  if (!hsl) {
+    return "";
+  }
+
+  const [h, s, l] = hsl;
   const newL = Math.max(0, Math.min(1, l * factor));
   return `${(h * 360).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(newL * 100).toFixed(2)}%`;
 };
@@ -55,7 +67,7 @@ const setColorProperty = (
 };
 
 const setColorScheme = (color: string, property: string) => {
-  const baseRgb = hexToRgb(color);
+  const baseRgb = hexToRgb(color) || [0, 0, 0];
   const factors = [1.8, 1.6, 1.4, 1.2, 1.1, 1.0, 0.9, 0.7, 0.5, 0.3, 0.15];
 
   factors.forEach((factor, index) => {
@@ -64,13 +76,15 @@ const setColorScheme = (color: string, property: string) => {
   });
 };
 
-export const setPalette = ({
+export const usePalette = ({
   primaryColor,
-  secondary_color,
+  secondaryColor,
 }: {
   primaryColor: string;
-  secondary_color: string;
+  secondaryColor: string;
 }) => {
-  setColorScheme(primaryColor, "primary");
-  setColorScheme(secondary_color, "secondary");
+  useEffect(() => {
+    setColorScheme(primaryColor, "primary");
+    setColorScheme(secondaryColor, "secondary");
+  }, [primaryColor, secondaryColor]);
 };

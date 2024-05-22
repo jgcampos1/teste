@@ -8,7 +8,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  plugins: ["react-refresh", "no-console"],
   rules: {
     "@typescript-eslint/no-namespace": "off",
     "react/prop-types": "off",
@@ -30,6 +30,7 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "no-console": ["error", { allow: ["warn", "error"] }],
   },
   settings: {
     react: {

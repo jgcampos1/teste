@@ -6,11 +6,12 @@ import Backend from "i18next-http-backend";
 const availableLanguages = ["en-US", "pt-BR"];
 
 const translationOptions: InitOptions = {
-  lng: "en",
+  lng: "en-us",
   load: "currentOnly",
   preload: availableLanguages,
   debug: false,
   supportedLngs: availableLanguages,
+  fallbackLng: "en-us",
   defaultNS: ["common", "exception"],
   ns: ["common", "exception"],
   react: {

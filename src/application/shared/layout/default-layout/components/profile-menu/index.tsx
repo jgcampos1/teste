@@ -1,14 +1,11 @@
 import { SignOut } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
 import { Item, MenuItem } from "~/application/shared/components/menu-item";
-import { ModalChangeColor } from "~/application/shared/components/modal-change-color";
 import { ProfileIcon } from "~/application/shared/components/profile-icon";
 import { useAuth } from "~/application/shared/hooks/use-auth";
-import { useToggle } from "~/application/shared/hooks/use-toggle";
 import { useTranslation } from "~/application/shared/hooks/use-translation";
 
 export const ProfileMenu = () => {
-  const [openModal, toggleModal] = useToggle();
   const { logout, user } = useAuth();
   const { translate } = useTranslation("common");
 
@@ -26,10 +23,7 @@ export const ProfileMenu = () => {
       label: translate("profileMenu.changePassword"),
       onClick: () => {},
     },
-    {
-      label: translate("Alterar cor principal"),
-      onClick: toggleModal,
-    },
+
     {
       label: translate("Tema"),
       onClick: () => {},
@@ -73,7 +67,6 @@ export const ProfileMenu = () => {
       <MenuItem items={items}>
         <ProfileIcon name={user?.name} />
       </MenuItem>
-      <ModalChangeColor open={openModal} onClose={toggleModal} />
     </>
   );
 };
