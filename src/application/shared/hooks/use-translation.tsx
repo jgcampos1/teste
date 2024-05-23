@@ -14,17 +14,18 @@ export const useTranslation = (namespace?: string | string[]): Translation => {
   const updateLanguage = useCallback(
     (newLanguage: AvailableLanguages): void => {
       changeLanguage(newLanguage);
+
       cacheStorage.set(STORAGE_TOKENS.LANGUAGE, newLanguage);
     },
     [changeLanguage]
   );
 
+  const storedValue = cacheStorage.get(STORAGE_TOKENS.LANGUAGE);
   useEffect(() => {
-    const storedValue = cacheStorage.get(STORAGE_TOKENS.LANGUAGE);
     if (storedValue) {
       updateLanguage(storedValue as AvailableLanguages);
     }
-  }, [updateLanguage]);
+  }, [updateLanguage, storedValue]);
 
   return {
     translate: t,

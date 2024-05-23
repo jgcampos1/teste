@@ -9,7 +9,7 @@ export class LocalStorageCacheStorage implements CacheStorage {
     return JSON.parse(storedItem);
   }
 
-  set<T>(key: string, value: T): void {
+  set<T>(key: string, value?: T): void {
     value
       ? localStorage.setItem(key, JSON.stringify(value))
       : localStorage.removeItem(key);

@@ -21,7 +21,7 @@ export class RequestResponse<R> {
       return success(new RequestResponse(responseBody));
     }
 
-    return error(new UnexpectedError(httpResponse as HttpError));
+    return error(new UnexpectedError(httpResponse as HttpError)) as any;
   }
 
   private static isSuccess(statusCode: HttpStatusCode): boolean {

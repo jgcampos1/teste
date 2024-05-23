@@ -23,6 +23,7 @@ import { useTranslation } from "../../hooks/use-translation";
 import { STORAGE_TOKENS } from "~/main/core/domain/entities/storage-tokens";
 import { CaretSortIcon } from "@radix-ui/react-icons";
 import { useContractStore } from "~/application/feature/contracts/store/contract.store";
+import { cacheStorage } from "~/main/cache";
 
 export type CompanyList = {
   [key: string]: {
@@ -72,17 +73,27 @@ export const SelectContract = () => {
     window.location.reload();
   };
 
+  const contractId = useMemo(() => {
+    return (
+      localStorage.getItem(STORAGE_TOKENS.CONTRACT_ID) ||
+      user?.contracts?.[0]?.id
+    );
+  }, [user]);
+
   useEffect(() => {
-    const contractId = localStorage.getItem(STORAGE_TOKENS.CONTRACT_ID);
     if (contractId) {
+      console.log(contractId);
       getContract({
         id: Number(contractId),
       });
     }
-  }, [getContract]);
+  }, [getContract, contractId]);
 
   useEffect(() => {
     if (actualContract) {
+      const contractIdTokenKey = STORAGE_TOKENS?.CONTRACT_ID;
+
+      cacheStorage.set(contractIdTokenKey, actualContract?.id);
       setContract(actualContract);
     }
   }, [actualContract, setContract]);
@@ -92,7 +103,6 @@ export const SelectContract = () => {
       getContractsList();
     }
   }, [getContractsList, user]);
-
   return (
     <>
       <Button onClick={() => setOpen(true)} variant={"outline"}>

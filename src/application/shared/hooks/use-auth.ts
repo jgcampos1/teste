@@ -5,10 +5,12 @@ import { ROUTES } from "~/main/types/routes-enum";
 import { useNavigate } from "react-router-dom";
 import { useGetAccountQuery } from "~/application/feature/account/store/hooks";
 import { useAuthStore } from "~/application/feature/auth/store/auth-store";
+import { STORAGE_TOKENS } from "~/main/core/domain/entities/storage-tokens";
 
 export const useAuth = () => {
   const { setAuth, authUser, clear } = useAuthStore();
   const accessTokenKey = AUTH_STORAGE_TOKENS.AUTH;
+  const contractIdTokenKey = STORAGE_TOKENS?.CONTRACT_ID;
   const navigate = useNavigate();
 
   const { data: user } = useGetAccountQuery();
@@ -22,8 +24,10 @@ export const useAuth = () => {
   }, [user, setAuth, authUser]);
 
   const logout = () => {
-    cacheStorage.set(accessTokenKey, null);
+    cacheStorage.set(accessTokenKey);
+    cacheStorage.set(contractIdTokenKey);
     navigate(ROUTES.LOGIN);
+
     clear();
   };
 

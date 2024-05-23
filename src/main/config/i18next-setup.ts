@@ -1,18 +1,16 @@
 import { initReactI18next } from "react-i18next";
-
 import i18next, { InitOptions } from "i18next";
 import Backend from "i18next-http-backend";
 
 const availableLanguages = ["en-US", "pt-BR"];
 
 const translationOptions: InitOptions = {
-  lng: "en-us",
+  lng: "en-US",
   load: "currentOnly",
   preload: availableLanguages,
   debug: false,
   supportedLngs: availableLanguages,
-  fallbackLng: "en-us",
-  defaultNS: ["common", "exception"],
+  defaultNS: "common",
   ns: ["common", "exception"],
   react: {
     useSuspense: true,

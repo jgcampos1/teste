@@ -1,3 +1,5 @@
+import { ContractModel } from "~/application/feature/contracts/domain/model/contract.model";
+
 export type AccountModel = {
   id: number;
   name: string;
@@ -36,4 +38,5 @@ export type AccountModel = {
   cnhExpirationDate?: string;
   cnhSituation?: string;
   registerSituation?: string;
+  contracts?: ContractModel[];
 };

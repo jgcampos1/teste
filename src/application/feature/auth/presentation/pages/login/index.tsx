@@ -5,16 +5,16 @@ import { useTranslation } from "~/application/shared/hooks/use-translation";
 import { useEmailLoginMutation } from "../../../store/hooks";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "~/main/types/routes-enum";
+import { useToastAlert } from "~/application/shared/hooks/use-toast-alert";
+import { useEffect } from "react";
 
 export const Login = () => {
-  const [handleLogin, { isError, error }] = useEmailLoginMutation();
+  const [handleLogin, { error, isError }] = useEmailLoginMutation();
   const { translate } = useTranslation("login");
 
   const methods = useForm<FormLoginSchema>({
     resolver,
   });
-
-  console.log(isError, error);
 
   const navigate = useNavigate();
 
@@ -25,6 +25,11 @@ export const Login = () => {
         navigate(ROUTES.DASHBOARD);
       });
   };
+
+  useToastAlert({
+    error: error?.value?.message,
+    isError,
+  });
 
   return (
     <div className="space-y-5 shadow-lg p-5 w-full">

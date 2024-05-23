@@ -13,7 +13,6 @@ export const useControllerTheme = () => {
 
   const config = useMemo(() => {
     if (!data) return null;
-    console.log({ data });
     return settingsAdapter(data as Record<string, string>);
   }, [data]);
 
@@ -26,7 +25,7 @@ export const useControllerTheme = () => {
   }, [contractId, getConfig]);
 
   usePalette({
-    primaryColor: theme?.primary_color as string,
-    secondaryColor: theme?.secondary_color as string,
+    primaryColor: (theme?.primary_color as string) || "#5DBFBD",
+    secondaryColor: (theme?.secondary_color as string) || "#1F2F4A",
   });
 };
